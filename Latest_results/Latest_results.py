@@ -25,7 +25,7 @@ li_tags = scrape_li_tags(url)
 current_directory = os.getcwd()
 
 # Specify the file path for saving the text file in the current directory
-file_path = os.path.join(current_directory, 'Result.txt')
+file_path = os.path.join(current_directory, 'Jobs.txt')
 
 # Open the file in write mode
 with open(file_path, 'w') as file:
