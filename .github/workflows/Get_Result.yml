@@ -1,0 +1,29 @@
+name: Python Script Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      script-file:
+        description: 'Script file to run'
+        required: true
+        default: 'Latest_Jobs.py'
+        options:
+          - admit_card.py
+          - Latest_Jobs.py
+          - Latest_results.py
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Run Python script
+        run: python ${{ github.workspace }}/${{ github.event.inputs.script-file }} > output.txt
