@@ -34,19 +34,14 @@ jobs:
           update-wheel: "false"
 
       - name: Run Python script
-        run: python ${{ github.workspace }}/${{ github.event.inputs.script-file }}
-
-      - name: Run Python script and display result
-        id: run-script
         continue-on-error: true
         run: |
-          output=$(python ${{ github.workspace }}/${{ github.event.inputs.script-file }})
-          echo "Script result: $output"
-
+        python ${{ github.workspace }}/${{ github.event.inputs.script-file }}
+        cat result.txt
 
       - name: Upload artifact
         if: ${{ success() }}
         uses: actions/upload-artifact@v2
         with:
           name: result-artifact
-          path: Jobs.txt
+          path: result.txt
