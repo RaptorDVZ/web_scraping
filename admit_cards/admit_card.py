@@ -1,7 +1,6 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-from docx import Document
 
 def scrape_li_tags(url):
     # Send a GET request to the URL
