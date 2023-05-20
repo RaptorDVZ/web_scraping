@@ -4,13 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       script-file:
+        type: choice
         description: 'Script file to run'
         required: true
         default: 'Latest_Jobs.py'
         options:
-          - admit_card.py
-          - Latest_Jobs.py
-          - Latest_results.py
+          - admit_cards/admit_card.py
+          - Latest_Jobs/Latest_Jobs.py
+          - Latest_results/Latest_results.py
 
 jobs:
   run-script:
