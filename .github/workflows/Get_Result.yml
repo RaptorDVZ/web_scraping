@@ -26,5 +26,12 @@ jobs:
         with:
           python-version: 3.x
 
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v2
+        with:
+          update-pip: "false"
+          update-setuptools: "false"
+          update-wheel: "false"
+
       - name: Run Python script
         run: python ${{ github.workspace }}/${{ github.event.inputs.script-file }} > output.txt
