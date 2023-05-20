@@ -36,8 +36,8 @@ jobs:
       - name: Run Python script
         continue-on-error: true
         run: |
-        python ${{ github.workspace }}/${{ github.event.inputs.script-file }}
-        cat result.txt
+          python ${{ github.workspace }}/${{ github.event.inputs.script-file }}
+          cat result.txt
 
       - name: Upload artifact
         if: ${{ success() }}
